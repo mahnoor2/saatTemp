@@ -1,0 +1,57 @@
+{% extends 'saatTempApp/base.html' %}
+{% block title %} Technology For Research {% endblock %}
+{% load staticfiles%}
+
+{% block particles %}
+    <div id='particles-js'>
+	  </div>
+{% endblock %}
+
+{% block body %}
+<script>
+function acitiveloader() {
+    document.getElementById('loaddergif').style.visibility = 'visible';
+}
+</script>
+
+	 <div class="container">
+      <div class="jumbotron" style='margin-top:16%;'id='overlays'>
+{#        <h3 style="font-family: Avenir;margin-left: -440px;">Search By URL</h3>#}
+{#        <div id="input">#}
+{##}
+{#          <form action="{% url 'tagging_tool:index_download' %}" method="post">#}
+{#                {% csrf_token %}#}
+{#              <input type="text" name="url" placeholder="Enter URL" style="padding: 2px;border: solid 3px #bababa;width: 100%;height: 40px;font-size:20px;background-color: #ffedca;font-family: Courier;" required/>#}
+{#             <input class="btn btn-lg btn-success loadButton" type="submit" value="Search" style="background-color: #333;border-color:#333 ">#}
+{#          </form>#}
+{##}
+{#        </div>#}
+        <h3 style="font-family: Avenir;margin-left: -452px;">Upload Paper</h3>
+        <div id="input">
+
+          <form onsubmit="acitiveloader();" action="{% url 'saatTempApp:index' %}" method="post" enctype="multipart/form-data" id="uploadform">
+                {% csrf_token %}
+              <input type="file" name="txt_file" placeholder="enter URL, PMID / DOI or search string" style="padding: 2px;border: solid 3px #bababa;width: 100%;height: 40px;font-size:20px;background-color: #ffedca;font-family: Courier;" required/>
+             <input class="btn btn-lg btn-success loadButton" type="submit" value="Upload" style="background-color: #333;border-color:#333 ">
+
+          </form>
+
+        </div>
+
+
+
+          {% if error_message %}
+         <p style="color: #ff1600; padding-top: 5px;"><strong> {{ error_message }}</strong></p>
+         {% endif %}
+{#        <img id="loaddergif" src="{% static 'tagging_tool/images/loader.gif' %}" class="img-responsive" alt="Responsive image" style="padding-bottom: -20px; visibility: hidden">#}
+
+      </div>
+
+
+      </div>
+    <script>
+
+    </script>
+{% endblock %}
+
+

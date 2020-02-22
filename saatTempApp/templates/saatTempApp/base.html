@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+
+    <title>{% block title %} Technology For Research {% endblock %}</title>
+    {% load staticfiles %}
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'saatTempApp/css/bootstrap.min.css' %}  " rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'saatTempApp/css/jumbotron-narrow.css' %}" rel="stylesheet">
+   <!-- Tabs Css -->
+    <link href="{% static 'saatTempApp/css/Tabs.css' %}" rel="stylesheet">
+
+
+    <link rel="shortcut icon" href="{% static 'saatTempApp/images/title.png' %}" type="image/x-icon" />
+    <style>
+        .not-allowed {pointer-events: none;cursor: not-allowed;}
+
+    </style>
+
+  </head>
+
+  <body onload="getAllTags(); hideSearchBar(); getFullText(22) ; disableTagging()">
+    {% block particles %}
+    {% endblock %}
+
+    <nav class ="navbar navbar-inverse header">
+      <div class = "container-fluid ">
+
+        <button type="button" class ="navbar-toggle"
+        data-toggle = "collapse"
+        data-target = ".navbar-collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class = "navbar-brand" href="{% url 'saatTempApp:index' %}"><img src="{% static 'saatTempApp/images/logo.png' %}" class="img-responsive" alt="Responsive image"></a>
+        <div class = "navbar-collapse collapse">
+          <ul class = "nav navbar-nav pull-right"> <!--unorderd list -->
+              <li><a href="{% url 'saatTempApp:index' %}" target="_blank" class="active">Home</a></li>
+
+          </ul>
+        </div>
+      </div>
+     </nav>
+
+
+
+{#        <nav class="navbar navbar-inverse header">#}
+{#          <div class="container-fluid">#}
+{#            <div class="navbar-header">#}
+{#              <a class="navbar-brand" href="{% url 'tagging_tool:index_download' %}"><img src="{% static 'tagging_tool/images/logo.png' %}" class="img-responsive" alt="Responsive image"></a>#}
+{#            </div>#}
+{##}
+{#            <ul class="nav navbar-nav pull-right">#}
+{#              <li><a href="{% url 'tagging_tool:index_download' %}" class="active">Home</a></li>#}
+{##}
+{#                 <li><a href="#">About</a></li>#}
+{#                <li><a href="#">Contact</a></li>#}
+{#            </ul>#}
+{#          </div>#}
+{#        </nav>#}
+    {% block body %}
+
+    {% endblock %}
+
+
+    <footer class="footer">
+
+      <div class="footer-inverse navbar-fixed-bottom">
+            © 2018 Copyright: <a href="" style="color: #333; "  disabled><strong> AIM RESEARCH LAB</strong></a>
+		</div>
+
+      </footer>
+
+
+    <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <script src="{% static 'tagging_tool/js/jquery-3.3.1.slim.min.js'%}"></script>
+
+    <script src="{% static 'saatTempApp/js/rangy-core.js.js'%}"></script>
+
+
+    <script src="{% static 'saatTempApp/js/tabscroll.js'%}"></script>
+	<script src="{% static 'tagging_tool/js/particles.min.js'%}"></script>
+    <script src="{% static 'tagging_tool/js/app.js'%}"></script>
+
+    <script src="{% static 'saatTempApp/js/jquery-3.2.1.min.js'%}"></script>
+    <script src="{% static 'saatTempApp/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'saatTempApp/js/operations.js'%}"></script>
+    <script src="{% static 'saatTempApp/js/TextHighlighters.js'%}"></script>
+    <script src="{% static 'saatTempAppjs/bootstrap-tooltip.js'%}"></script>
+    <script src="{% static 'saatTempApp/js/jquery.highlight.js'%}"></script>
+  <script src="{% static 'saatTempApp/js/livehighlight.js.js'%}"></script>
+
+    <script>
+        function hideSearchBar(){
+            document.getElementById("search_bar").style.visibility = "hidden";
+            $("#operations_tab").empty();
+        }
+    </script>
+
+  </body>
+</html>
